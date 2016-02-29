@@ -13,7 +13,9 @@
 const char* ssid = "YOUR_SSID";
 const char* password = "YOUR_PASSWORD";
 
+//LED on ESP8266 GPIO2
 const int lightPin = 2;
+
 char* lightTopic = "/test/light1";
 
 
