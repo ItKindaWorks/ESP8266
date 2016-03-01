@@ -32,6 +32,8 @@ void setup() {
 	delay(100);
 
 
+	//start wifi subsystem
+	WiFi.begin(ssid, password);
 	//attempt to connect to the WIFI network and then connect to the MQTT server
 	reconnect();
 
@@ -89,9 +91,6 @@ void reconnect() {
 		//debug printing
 		Serial.print("Connecting to ");
 		Serial.println(ssid);
-
-		//start wifi subsystem
-		WiFi.begin(ssid, password);
 
 		//loop while we wait for connection
 		while (WiFi.status() != WL_CONNECTED) {
