@@ -9,6 +9,8 @@
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
 
+
+//EDIT THESE LINES TO MATCH YOUR SETUP
 #define MQTT_SERVER "YOUR.MQTT.SERVER.IP"
 const char* ssid = "YOUR_SSID";
 const char* password = "YOUR_PASSWORD";

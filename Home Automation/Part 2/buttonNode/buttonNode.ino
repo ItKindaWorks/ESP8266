@@ -10,6 +10,8 @@
 #include <ESP8266WiFi.h>
 #include <Bounce2.h>
 
+
+//EDIT THESE LINES TO MATCH YOUR SETUP
 #define MQTT_SERVER "YOUR.MQTT.SERVER.IP"
 const char* ssid = "YOUR_SSID";
 const char* password = "YOUR_PASSWORD";
@@ -21,7 +23,7 @@ const int buttonPin = 2;
 char* lightTopic = "/house/light1";
 
 
-//
+//create an instance of the bounce class
 Bounce myButton = Bounce();
 
 
@@ -60,6 +62,7 @@ void loop(){
 	//maintain MQTT connection
 	client.loop();
 
+	//monitor the button
 	checkButton();
 
 	//MUST delay to allow ESP8266 WIFI functions to run
@@ -75,13 +78,17 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 
 void checkButton(){
-	static boolean isOn = false;
+	static boolean isOn = false;	//static var to keep track of the intended current light state
 
-	if(myButton.update() && myButton.read() == HIGH){
+	if(myButton.update() && myButton.read() == HIGH){	//update the button and check for HIGH or LOW state
+		
+		//on false, the light is off so tell it to turn on and set the internal var to true
 		if(isOn == false){
 			client.publish(lightTopic, "1");
 			isOn = true;
 		}
+
+		//else (on true), the light is on so tell it to turn off and set the internal var to false
 		else{
 			client.publish(lightTopic, "0");
 			isOn = false;
