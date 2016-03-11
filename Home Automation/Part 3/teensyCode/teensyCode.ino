@@ -1,4 +1,7 @@
-
+//ItKindaWorks - Creative Commons 2016
+//github.com/ItKindaWorks
+//
+//Teensy monitor node
 
 //change these to match what you want for temperature range
 //note that there is no LOW_TEMP because anything under MID_TEMP 

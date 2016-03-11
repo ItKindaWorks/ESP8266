@@ -3,7 +3,7 @@
 //
 //Requires PubSubClient found here: https://github.com/knolleary/pubsubclient
 //
-//ESP8266 MQTT serial conduit
+//ESP8266 MQTT door sensor node
 
 
 #include <PubSubClient.h>
