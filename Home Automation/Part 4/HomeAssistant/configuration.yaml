@@ -1,0 +1,90 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  # latitude: 
+  # longitude: 
+
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: F
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: EST
+
+# Show links to resources in log and frontend
+# introduction:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+#sun:
+
+# Enables support for tracking state changes over time.
+history:
+
+# Checks for available updates
+updater:
+
+# Allows you to issue voice commands from the frontend
+conversation:
+
+# Enables the frontend
+frontend:
+
+# Discover some devices automatically
+# discovery:
+
+http:
+  api_password: yourPasswordHere
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+
+
+
+sensor 1:
+  - platform: mqtt
+    state_topic: "/house/temp1"
+    unit_of_measurement: "°F"
+    name: "Temperature"
+
+
+
+binary_sensor 1:
+  platform: mqtt
+  state_topic: "/house/door1"
+  name: "Door Sensor"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+
+
+
+
+switch 1:
+  platform: mqtt
+  name: "Outlet 1"
+  state_topic: "/house/light1confirm"
+  command_topic: "/house/light1"
+  payload_on: "1"
+  payload_off: "0"
+  qos: 0
+  retain: true
+
+
+
+group:
+  Home Sensors: 
+   - binary_sensor.door_sensor
+   - sensor.temperature
+   - switch.outlet_1
+
+
+
+
+
+
+
