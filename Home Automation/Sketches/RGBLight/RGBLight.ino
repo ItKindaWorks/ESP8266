@@ -1,22 +1,22 @@
 /*    
-    wifiRGB.ino
+    RGBLight.ino
     Copyright (c) 2016 ItKindaWorks All right reserved.
     github.com/ItKindaWorks
 
-    This file is part of wifiRGB
+    This file is part of RGBLight
 
-    wifiRGB is free software: you can redistribute it and/or modify
+    RGBLight is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    wifiRGB is distributed in the hope that it will be useful,
+    RGBLight is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with wifiRGB.  If not, see <http://www.gnu.org/licenses/>.
+    along with RGBLight.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /*
@@ -32,6 +32,9 @@
 	This program also posts a status update to the status topic
 	which is the lightTopic plus "/status" (ex. if the lightTopic
 	is "/home/RGBlight" then the statusTopic would be "home/RGBlight/status")
+
+	Change the Topic/Hostname/OTA Password and network settings to match your system.
+	
 */
 
 #include "ESPHelper.h"
